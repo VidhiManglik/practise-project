@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sikkim1"
+    tools:context="gtbit.retro06.www.sikkimelectricityboard.SplashScreen">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="auto"
+        android:fontFamily="cursive"
+        android:text="Welcome To"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="36sp"
+        android:padding="20sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="120sp"
+            android:src="@drawable/smhck_logo"
+            android:layout_weight="3"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="auto"
+            android:fontFamily="cursive"
+            android:text="Sikkim Electricity Board"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:padding="20sp"/>
+    </LinearLayout>
+</FrameLayout>

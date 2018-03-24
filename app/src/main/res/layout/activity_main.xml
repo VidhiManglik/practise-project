@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="gtbit.retro06.www.sikkimelectricityboard.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:src="@drawable/sikkim4"
+        android:scaleType="centerCrop"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10sp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/circular"
+                android:layout_width="199dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:background="#E1F5FE"
+                android:scaleType="centerInside"
+                android:src="@drawable/circular" />
+
+            <ImageButton
+                android:id="@+id/billhistory"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/bill"
+                android:background="#E3F2FD"
+                android:layout_margin="5sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/billpayment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/wallet"
+                android:background="#B3E5FC"
+                android:layout_margin="5sp"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/query"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/query"
+                android:background="#BBDEFB"
+                android:layout_margin="5sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/safetytips"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/tips"
+                android:background="#81D4FA"
+                android:layout_margin="5sp"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/nearbycenter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/nearbycenter"
+                android:background="#90CAF9"
+                android:layout_margin="5sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
