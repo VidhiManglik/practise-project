@@ -4,7 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class CircularsNotices extends AppCompatActivity {
-
+	String issueDate;
+	Center issuingCenter;
+	String notificationContent;
+	boolean serviceDisruptionOccurs;
+	boolean localizedImpact;
+	Grid gridAffected;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
