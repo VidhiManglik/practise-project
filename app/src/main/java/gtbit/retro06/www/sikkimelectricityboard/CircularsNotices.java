@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class CircularsNotices extends AppCompatActivity {
 	String issueDate;
-	Center issuingCenter;
+	ServiceCenter issuingCenter;
 	String notificationContent;
 	boolean serviceDisruptionOccurs;
 	boolean localizedImpact;

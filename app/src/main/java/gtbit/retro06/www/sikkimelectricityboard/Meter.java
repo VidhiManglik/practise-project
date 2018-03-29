@@ -6,7 +6,12 @@ import android.os.Bundle;
 public class Meter extends AppCompatActivity {
 	String meterNumber;
 	float capacityKW;
+	Reading[] readings;
 
+	public Reading getReadingAt(String date){
+		//TODO:generate implementation of this method.
+		return null;
+	}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
