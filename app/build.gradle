@@ -31,4 +31,3 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.1.0'
     compile group: 'com.google.maps', name: 'google-maps-services', version: '0.1.1'
 }
-
