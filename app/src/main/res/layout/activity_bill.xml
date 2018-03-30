@@ -15,22 +15,48 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="-10dp"
-            card_view:cardCornerRadius="10dp"
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/info_text1"
                     android:layout_width="250dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:text="Name"
-                    android:textSize="40sp" />
-
+                    android:layout_height="50dp"
+                    android:text="Name:"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="-70dp"/>
+                <TextView
+                    android:id="@+id/info_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Phone No.:"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="-70dp"/>
+                <TextView
+                    android:id="@+id/info_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Email:"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="-70dp"/>
+                <TextView
+                    android:id="@+id/info_text4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="C.A. No.:"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="-70dp"/>
 
             </LinearLayout>
 
@@ -51,11 +77,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text2"
+                    android:id="@+id/bill1"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:text="Location B"
+                    android:text="May 2018"
                     android:textSize="40sp"/>
 
                 <Button
@@ -63,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/normal"
+                    android:background="@drawable/due"
                     android:gravity="center_vertical|center_horizontal" />
             </LinearLayout>
 
@@ -84,11 +110,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text3"
+                    android:id="@+id/bill2"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:text="Location C"
+                    android:text="March 2018"
                     android:textSize="40sp"/>
 
                 <Button
@@ -96,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/normal"
+                    android:background="@drawable/due"
                     android:gravity="center_vertical|center_horizontal" />
             </LinearLayout>
 
@@ -117,11 +143,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text4"
+                    android:id="@+id/bill3"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:text="Location D"
+                    android:text="Jan 2018"
                     android:textSize="40sp"/>
 
                 <Button
@@ -129,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/normal"
+                    android:background="@drawable/done"
                     android:gravity="center_vertical|center_horizontal" />
             </LinearLayout>
 
@@ -150,11 +176,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text5"
+                    android:id="@+id/bill4"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:text="Location E"
+                    android:text="Nov 2017"
                     android:textSize="40sp"/>
 
                 <Button
@@ -162,7 +188,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/normal"
+                    android:background="@drawable/done"
                     android:gravity="center_vertical|center_horizontal" />
             </LinearLayout>
 
@@ -183,11 +209,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/info_text6"
+                    android:id="@+id/bill5"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:text="Location F"
+                    android:text="Sept 2017"
                     android:textSize="40sp"/>
 
                 <Button
@@ -195,108 +221,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:background="@drawable/normal"
+                    android:background="@drawable/done"
                     android:gravity="center_vertical|center_horizontal" />
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view7"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            card_view:cardCornerRadius="10dp"
-            android:layout_marginBottom="-10dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/info_text7"
-                    android:layout_width="250dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:text="Location G"
-                    android:textSize="40sp"/>
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/normal"
-                    android:gravity="center_vertical|center_horizontal" />
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view8"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            card_view:cardCornerRadius="10dp"
-            android:layout_marginBottom="-10dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/info_text8"
-                    android:layout_width="250dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:text="Location H"
-                    android:textSize="40sp"/>
-
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/normal"
-                    android:gravity="center_vertical|center_horizontal" />
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view9"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            card_view:cardCornerRadius="10dp"
-            android:layout_marginBottom="-10dp"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/info_text9"
-                    android:layout_width="250dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:text="Location I"
-                    android:textSize="40sp"/>
-
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/normal"
-                    android:gravity="center_vertical|center_horizontal" />
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 </ScrollView>
