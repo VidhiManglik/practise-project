@@ -13,13 +13,9 @@ public class Bill extends AppCompatActivity {
 	long paidAmount; 
 	String paymentMethod;
 	String status;
-	Person customer;
 	float amount;
 	float unitsConsumed;
-	
-	// ServiceCenter billingCenter;
 	Grid grid;
-	Meter meter ;
 	TariffSnapshot tariff;
 	
 	public long getDueDate() {
@@ -48,12 +44,6 @@ public class Bill extends AppCompatActivity {
 	}
 	private void setBillDate(long billDate) {
 		this.billDate = billDate;
-	}
-	public Person getCustomer() {
-		return customer;
-	}
-	private void setCustomer(Person customer) {
-		this.customer = customer;
 	}
 	public float getAmount() {
 		return amount;
@@ -102,12 +92,12 @@ public class Bill extends AppCompatActivity {
 		this.paymentMethod = paymentMethod;
 	}
 	private void setStatus(String status) {
+		//permitted values are "PAID","DUE","OVERDUE","LAPSE"
 		this.status = status;
 	}
 	public Bill(long billDate, Person customer, float unitsConsumed, Grid grid, Meter meter, TariffSnapshot tariff) {
 		this.setBillDate(billDate);
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
-		this.setCustomer(customer);
 		this.setUnitsConsumed(unitsConsumed);
 		this.setGrid(grid);
 		this.setMeter(meter);

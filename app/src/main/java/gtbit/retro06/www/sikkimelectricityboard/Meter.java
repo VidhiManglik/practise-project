@@ -7,6 +7,7 @@ public class Meter extends AppCompatActivity {
 	String meterNumber;
 	float capacityKW;
 	Reading[] readings;
+	Bill[] bills;
 
 	public Reading getReadingAt(String date){
 		//TODO:generate implementation of this method.
