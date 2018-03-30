@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "918634267739",
+    "firebase_url": "https://sikkim-electricity-board.firebaseio.com",
+    "project_id": "sikkim-electricity-board",
+    "storage_bucket": "sikkim-electricity-board.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918634267739:android:be9cd98e19d9e847",
+        "android_client_info": {
+          "package_name": "gtbit.retro06.www.sikkimelectricityboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918634267739-aj3rdv7fb4pqfb8iv1eim87iiedjg9dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_p2sj18dB1-1jbFGud7FLNhSslvgvvYI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
