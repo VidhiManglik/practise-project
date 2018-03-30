@@ -6,20 +6,16 @@ import java.text.SimpleDateFormat;
 
 public class Bill extends AppCompatActivity {
 	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period
+	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
 	long dueDate;
 	long paymentDate; 
 	long paidAmount; 
 	String paymentMethod;
 	String status;
-	Person customer;
 	float amount;
 	float unitsConsumed;
-	
-	// ServiceCenter billingCenter;
 	Grid grid;
-	Meter meter ;
 	TariffSnapshot tariff;
 	
 	public long getDueDate() {
@@ -48,12 +44,6 @@ public class Bill extends AppCompatActivity {
 	}
 	private void setBillDate(long billDate) {
 		this.billDate = billDate;
-	}
-	public Person getCustomer() {
-		return customer;
-	}
-	private void setCustomer(Person customer) {
-		this.customer = customer;
 	}
 	public float getAmount() {
 		return amount;
@@ -102,12 +92,12 @@ public class Bill extends AppCompatActivity {
 		this.paymentMethod = paymentMethod;
 	}
 	private void setStatus(String status) {
+		//permitted values are "PAID","DUE","OVERDUE","LAPSE"
 		this.status = status;
 	}
 	public Bill(long billDate, Person customer, float unitsConsumed, Grid grid, Meter meter, TariffSnapshot tariff) {
 		this.setBillDate(billDate);
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
-		this.setCustomer(customer);
 		this.setUnitsConsumed(unitsConsumed);
 		this.setGrid(grid);
 		this.setMeter(meter);
@@ -123,6 +113,6 @@ public class Bill extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_circulars_notices);
+		setContentView(R.layout.activity_bill);
 	}
 }
