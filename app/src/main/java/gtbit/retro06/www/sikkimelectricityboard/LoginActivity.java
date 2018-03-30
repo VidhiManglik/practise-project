@@ -69,9 +69,11 @@ public class LoginActivity extends AppCompatActivity
                 else{
                     //Throw error here. The id entered is invalid
                 }
-                person = objectMapper.readValue(dbResultJSON, Person.class);
+                //person = objectMapper.readValue(dbResultJSON, Person.class);
                 if(person.getPassword().equals(pas)){
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Intent main=new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(main);
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "Password Validation Failed", Toast.LENGTH_SHORT).show();
