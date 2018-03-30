@@ -12,20 +12,19 @@ public class UserQuery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_query);
 
-        private RecyclerView verticalList;
-        private VerticalListAdapter verticalAdapter;
+         RecyclerView verticalList;
+         VerticalListAdapter verticalAdapter;
 
-            verticalList = (RecyclerView)findViewById(R.id.vertical_recycler);
+            verticalList = findViewById(R.id.vertical_recycler);
 
 
             verticalList.setHasFixedSize(true);
 
-            //set vertical LinearLayout as layout manager for vertial listview
+            //set vertical LinearLayout as layout manager for vertical listview
             LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             verticalList.setLayoutManager(layoutManager);
             verticalAdapter = new VerticalListAdapter(this);
             verticalList.setAdapter(verticalAdapter);
         }
     }
-    }
-}
+
