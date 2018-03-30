@@ -167,10 +167,13 @@ public class LoginActivity extends AppCompatActivity
                 {
                     person =null;
                 }
-                if (person.getPassword().equals(pass)) {
+                
+                if(person.getPassword().equals(pass)){
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent bill = new Intent(LoginActivity.this, Bill.class);
-                } else {
+                    Intent main=new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(main);
+                }
+                else {
                     Toast.makeText(LoginActivity.this, "Password Validation Failed", Toast.LENGTH_SHORT).show();
                 }
             }

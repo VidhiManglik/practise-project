@@ -35,7 +35,7 @@ public class UtilityFunctions {
     }
 
     public static MongoClient getDBClient(){
-        return new MongoClient();
+        return new MongoClient("192.168.43.122",27017);
     }
     public static MongoDatabase getDataBase(String DBName){
         return getDBClient().getDatabase(DBName);
