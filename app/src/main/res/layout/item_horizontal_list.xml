@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="15dp"
         android:layout_margin="20dp">
@@ -21,23 +21,16 @@
                 android:layout_height="wrap_content"
                 android:text="Power Cut Notice"
                 android:textSize="30sp"
+                android:layout_weight="1"
                 android:layout_margin="10dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
+                android:layout_weight="20"
                 android:layout_margin="10dp"
                 android:text="Beta aapki bijli gayi. Jao ro kahi pe. Bewakoof Log."/>
 
-
         </LinearLayout>
-
-
-
-
-
     </android.support.v7.widget.CardView>
-
-
 </LinearLayout>
