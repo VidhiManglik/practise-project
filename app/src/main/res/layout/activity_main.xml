@@ -36,7 +36,8 @@
                 android:layout_weight="1"
                 android:background="#E1F5FE"
                 android:scaleType="centerInside"
-                android:src="@drawable/circular" />
+                android:src="@drawable/circular1"
+                android:theme="@style/Base.TextAppearance.AppCompat"/>
 
             <ImageButton
                 android:id="@+id/billhistory"
@@ -54,6 +55,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/billpayment"
@@ -64,13 +70,22 @@
                 android:background="#B3E5FC"
                 android:layout_margin="5sp"
                 android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="circulars"
+                    android:textColor="#000000"
+                    android:layout_weight="0"
+                    />
+
+            </LinearLayout>
 
             <ImageButton
                 android:id="@+id/query"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/query"
+                android:src="@drawable/query1"
                 android:background="#BBDEFB"
                 android:layout_margin="5sp"
                 android:layout_weight="1"/>
@@ -87,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/tips"
+                android:src="@drawable/tips1"
                 android:background="#81D4FA"
                 android:layout_margin="5sp"
                 android:layout_weight="1"/>
@@ -97,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/nearbycenter"
+                android:src="@drawable/nearby1"
                 android:background="#90CAF9"
                 android:layout_margin="5sp"
                 android:layout_weight="1"/>
