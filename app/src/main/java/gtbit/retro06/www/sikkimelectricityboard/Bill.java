@@ -65,12 +65,6 @@ public class Bill extends AppCompatActivity {
 	private void setGrid(Grid grid) {
 		this.grid = grid;
 	}
-	public Meter getMeter() {
-		return meter;
-	}
-	private void setMeter(Meter meter) {
-		this.meter = meter;
-	}
 	public TariffSnapshot getTariff() {
 		return tariff;
 	}
@@ -100,7 +94,6 @@ public class Bill extends AppCompatActivity {
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
 		this.setUnitsConsumed(unitsConsumed);
 		this.setGrid(grid);
-		this.setMeter(meter);
 		this.setTariff(tariff);
 	}
 	public Bill(){

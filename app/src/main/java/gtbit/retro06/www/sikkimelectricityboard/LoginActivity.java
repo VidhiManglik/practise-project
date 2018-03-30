@@ -46,14 +46,14 @@ public class LoginActivity extends AppCompatActivity
         pass = findViewById(R.id.password);
         but = findViewById(R.id.phn_sign_in_button);
 //        final String num1 = new String("9876543210");
-        final Person person = new Person();
-        person.setPhoneNumber("8800768091");
-        person.setPassword("qwertyuiop");
-
+//        final
         final ObjectMapper objectMapper = new ObjectMapper();
         but.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Person person = new Person();
+                person.setPhoneNumber("8800768091");
+                person.setPassword("qwertyuiop");
                 String num = new String(number.getText().toString());
                 String pas = new String(pass.getText().toString());
                 String dbResultJSON = "";
@@ -69,7 +69,12 @@ public class LoginActivity extends AppCompatActivity
                 else{
                     //Throw error here. The id entered is invalid
                 }
-                person = objectMapper.readValue(dbResultJSON, Person.class);
+                try {
+                    person = objectMapper.readValue(dbResultJSON, Person.class);
+                }
+                catch(Exception e ){
+                    person = null;
+                }
                 if(person.getPassword().equals(pas)){
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 }
