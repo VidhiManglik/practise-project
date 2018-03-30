@@ -5,7 +5,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Bill extends AppCompatActivity {
-	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	public static DateFormat getDateFormat() {
+		DATE_FORMAT.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5.30"));
+		return DATE_FORMAT;
+	}
 	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
 	long dueDate;
@@ -13,13 +17,9 @@ public class Bill extends AppCompatActivity {
 	long paidAmount; 
 	String paymentMethod;
 	String status;
-	Person customer;
 	float amount;
 	float unitsConsumed;
-	
-	// ServiceCenter billingCenter;
 	Grid grid;
-	Meter meter ;
 	TariffSnapshot tariff;
 	
 	public long getDueDate() {
@@ -49,12 +49,6 @@ public class Bill extends AppCompatActivity {
 	private void setBillDate(long billDate) {
 		this.billDate = billDate;
 	}
-	public Person getCustomer() {
-		return customer;
-	}
-	private void setCustomer(Person customer) {
-		this.customer = customer;
-	}
 	public float getAmount() {
 		return amount;
 	}
@@ -74,12 +68,6 @@ public class Bill extends AppCompatActivity {
 	}
 	private void setGrid(Grid grid) {
 		this.grid = grid;
-	}
-	public Meter getMeter() {
-		return meter;
-	}
-	private void setMeter(Meter meter) {
-		this.meter = meter;
 	}
 	public TariffSnapshot getTariff() {
 		return tariff;
@@ -102,15 +90,14 @@ public class Bill extends AppCompatActivity {
 		this.paymentMethod = paymentMethod;
 	}
 	private void setStatus(String status) {
+		//permitted values are "PAID","DUE","OVERDUE","LAPSE"
 		this.status = status;
 	}
 	public Bill(long billDate, Person customer, float unitsConsumed, Grid grid, Meter meter, TariffSnapshot tariff) {
 		this.setBillDate(billDate);
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
-		this.setCustomer(customer);
 		this.setUnitsConsumed(unitsConsumed);
 		this.setGrid(grid);
-		this.setMeter(meter);
 		this.setTariff(tariff);
 	}
 	public Bill(){

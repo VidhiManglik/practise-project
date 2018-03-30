@@ -32,12 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	         
-	<activity
-		android:name=".LoginActivity"
-		android:label="log in" 
-		android:exported="true"
-	/>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:label="log in" />
         <activity
             android:name=".Payment"
             android:label="Payment Portal" />
@@ -65,14 +63,21 @@
         <activity
             android:name=".NearByCenter"
             android:label="Centers near Me!" />
-        <activity android:name=".Tariffs"
-            android:label="Tariffs"/>
-        <activity android:name=".UserDetails"
-            android:label="MyAccount"/>
-        <activity android:name=".AboutUs"
-            android:label="About Us"/>
-        <activity android:name=".AdminActivity"
-            android:label="Admin Activity"/>
+        <activity
+            android:name=".Tariffs"
+            android:label="Tariffs" />
+        <activity
+            android:name=".UserDetails"
+            android:label="MyAccount" />
+        <activity
+            android:name=".AboutUs"
+            android:label="About Us" />
+        <activity
+            android:name=".AdminActivity"
+            android:label="Admin Activity"
+            />
+        <activity android:name=".BillViewActivity"
+            android:label="Bill View"></activity>
     </application>
 
 </manifest>

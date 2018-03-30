@@ -6,10 +6,9 @@ public class Person {
 	String role;
 	String emailID;
 	String customerAccountNumber;
-	Connection connection;
-	Bill[] previousBills;
+	Meter connection;
 	String password;
-	Meter meter;
+	
 	public String getName() {
 		return name;
 	}
@@ -40,17 +39,11 @@ public class Person {
 	public void setCustomerAccountNumber(String customerAccountNumber) {
 		this.customerAccountNumber = customerAccountNumber;
 	}
-	public Connection getConnection() {
+	public Meter getConnection() {
 		return connection;
 	}
-	public void setConnection(Connection connection) {
+	public void setConnection(Meter connection) {
 		this.connection = connection;
-	}
-	public Bill[] getPreviousBills() {
-		return previousBills;
-	}
-	public void setPreviousBills(Bill[] previousBills) {
-		this.previousBills = previousBills;
 	}
 	public String getPassword() {
 		return password;
@@ -58,15 +51,9 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Meter getMeter() {
-		return meter;
-	}
-	public void setMeter(Meter meter) {
-		this.meter = meter;
+	public void generateNewBill(){
+		//TODO:implement this method
 	}
 	
-	public void generateNewBill(){
-		
-	}
 	
 }
