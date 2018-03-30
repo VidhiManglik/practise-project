@@ -10,7 +10,6 @@ public class CircularsNotices extends AppCompatActivity {
 	boolean serviceDisruptionOccurs;
 	boolean localizedImpact;
 	Grid gridAffected;
-	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

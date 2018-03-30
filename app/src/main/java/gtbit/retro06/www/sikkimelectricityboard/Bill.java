@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class Bill extends AppCompatActivity {
 	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
-	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period
+	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
 	long dueDate;
 	long paymentDate; 
@@ -113,6 +113,6 @@ public class Bill extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_circulars_notices);
+		setContentView(R.layout.activity_bill);
 	}
 }
