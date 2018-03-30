@@ -29,6 +29,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile group: 'org.json', name: 'json', version: '20180130'
     compile group: 'com.google.maps', name: 'google-maps-services', version: '0.1.1'
     compile group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '7.0'
     compile group: 'javax.mail', name: 'mail', version: '1.4'
