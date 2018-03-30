@@ -30,6 +30,15 @@
     android:orientation="vertical"
     tools:context="gtbit.retro06.www.sikkimelectricityboard.MainActivity"
     >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Login"/>
 
     <LinearLayout
         android:id="@+id/containerll"
@@ -139,6 +148,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

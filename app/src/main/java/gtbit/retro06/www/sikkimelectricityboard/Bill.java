@@ -5,7 +5,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Bill extends AppCompatActivity {
-	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	public static DateFormat getDateFormat() {
+		DATE_FORMAT.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5.30"));
+		return DATE_FORMAT;
+	}
 	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
 	long dueDate;
