@@ -145,10 +145,16 @@ public class LoginActivity extends AppCompatActivity
                         Toast.makeText(LoginActivity.this, "Login via phn", Toast.LENGTH_SHORT).show();
                         person = getPersonWithPhoneNumber(ussrnm);
                     } else if (UtilityFunctions.isValidEmailAddress(ussrnm)) {
+                        Toast.makeText(LoginActivity.this, "Is Valid Email", Toast.LENGTH_SHORT).show();
+
                         String email = new String(username.getText().toString());  // Use here email
                         String pas = new String(pass.getText().toString());
                         Toast.makeText(LoginActivity.this, "Login via email", Toast.LENGTH_SHORT).show();
                         person = getPersonWithEmail(ussrnm);
+                        if(person != null){
+                            Toast.makeText(LoginActivity.this, "Person retrieved from DB" + person.getEmailID(), Toast.LENGTH_SHORT).show();
+
+                        }
                     } else if (UtilityFunctions.isValidMeterNumber(ussrnm)) {
                         String mtrnmbr = new String(username.getText().toString());  //Use here Customer Id
                         String pas = new String(pass.getText().toString());
@@ -168,7 +174,7 @@ public class LoginActivity extends AppCompatActivity
                     person =null;
                 }
                 
-                if(person.getPassword().equals(pas)){
+                if(person.getPassword().equals(pass)){
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     Intent main=new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(main);
