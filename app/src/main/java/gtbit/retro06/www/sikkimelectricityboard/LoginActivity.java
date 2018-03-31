@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,6 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import static android.Manifest.permission.READ_CONTACTS;
+import static android.content.ContentValues.TAG;
 import static com.mongodb.client.model.Filters.eq;
 import static java.lang.String.*;
 public class LoginActivity extends AppCompatActivity
@@ -98,12 +100,9 @@ public class LoginActivity extends AppCompatActivity
                         JSONObject requestData = new JSONObject();
                         requestData.put("phoneNumber", username.getText().toString());
                         requestData.put("password", pas);
-                        String p = (String) UtilityFunctions.getValues(UtilityFunctions.getLoginUrl(),requestData.toString(),"person" , Person.class);
-                        if (p == null){
+                        dbResultJSON= (String) UtilityFunctions.getValues(UtilityFunctions.getLoginUrl(),requestData.toString(),"person" , Person.class);
+                        if (dbResultJSON == null){
                             Toast.makeText(LoginActivity.this, "abcde", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-
                         }
                     } else if (UtilityFunctions.isValidEmailAddress(ussrnm)) {
 
@@ -116,9 +115,10 @@ public class LoginActivity extends AppCompatActivity
                         JSONObject requestData = new JSONObject();
                         requestData.put("emailID", username.getText().toString());
                         requestData.put("password", pas);
-                        Person p = (Person) UtilityFunctions.getValues(UtilityFunctions.getLoginUrl(),requestData.toString(),"person" , Person.class);
-                        Toast.makeText(LoginActivity.this, "Person being retrieved from DB" + person.getEmailID(), Toast.LENGTH_SHORT).show();
-                        if (p != null) {
+                        dbResultJSON = (String)UtilityFunctions.getValues(UtilityFunctions.getLoginUrl(),requestData.toString(),"person" , Person.class);
+                        Log.e(TAG, "getValues: LoginAct119"+dbResultJSON,null );
+                        Toast.makeText(LoginActivity.this, "Person being retrieved from DB", Toast.LENGTH_SHORT).show();
+                        if (dbResultJSON!= null) {
                             Toast.makeText(LoginActivity.this, "Person retrieved from DB" + person.getEmailID(), Toast.LENGTH_SHORT).show();
                         }
                         else{
@@ -139,8 +139,12 @@ public class LoginActivity extends AppCompatActivity
 
                 }
                 try {
-                    person = objectMapper.readValue(dbResultJSON, Person.class);
+                    Log.e(TAG, "getValues: LoginAct152"+dbResultJSON,null );
+//                    person = objectMapper.readValue(dbResultJSON, Person.class);
+                    person = Person.parseJSON(dbResultJSON);
+                    Log.e(TAG, "getValues: LoginAct156",null );
                 } catch (Exception e) {
+                    Log.e(TAG, "getValues: LoginAct158" + e.getMessage(),null );
                     person = null;
                 }
                 if (person!= null) {

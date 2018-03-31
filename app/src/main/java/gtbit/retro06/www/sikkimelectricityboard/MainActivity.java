@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent nbc=new Intent(MainActivity.this,NearByCenter.class);
-                startActivity(nbc);
+//                Intent nbc=new Intent(MainActivity.this,NearByCenter.class);
+//                startActivity(nbc);
             }
         });
     }

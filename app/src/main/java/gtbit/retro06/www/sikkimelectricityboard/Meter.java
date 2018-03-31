@@ -24,10 +24,7 @@ public class Meter {
 		return reading;
 	}
 	public Bill[] getBills() {
-		return bills;
-	public void setMeterNumber(String meterNumber) {
-		this.meterNumber = meterNumber;
-	}
+		return bills;}
 	public float getCapacityKW() {
 		return capacityKW;
 	}
@@ -38,21 +35,13 @@ public class Meter {
 		this.capacityKW = capacityKW;
 	}
 	public void setMeterNumber(String meterNumber) {
-		this.meterNumber = meterNumber;
+		this.meterNumber = meterNumber;}
 	public Reading getReading() {
 		return reading;
 	}
 	public void setReading(Reading reading) {
 		this.reading = reading;
 	}
-	public Bill[] getBills() {
-		return bills;
-	}
-
-	public void setBills(Bill[] bills) {
-		this.bills = bills;
-	}
-
 	public Meter(){
 		super();
 	}

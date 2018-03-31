@@ -35,7 +35,9 @@ public class TestDataGenerator {
         }
         return canumber;
     }
-    public static long RandomDateGenerator(){
+    public static String RandomDateGenerator(){
+        String az = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567889";
+
         Random r = new Random();
         int length = 6;//r.nextInt(6);
         String canumber = "";

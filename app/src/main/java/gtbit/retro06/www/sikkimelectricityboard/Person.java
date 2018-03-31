@@ -1,8 +1,12 @@
 package gtbit.retro06.www.sikkimelectricityboard;
 
+import android.util.Log;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import static android.content.ContentValues.TAG;
 
 public class Person {
 	String name;
@@ -21,7 +25,6 @@ public class Person {
 		this.phoneNumber = phoneNumber;
 		this.role = "CUSTOMER";
 		this.emailID = emailID;
-		this.customerAccountNumber = customerAccountNumber;
 		this.connection = connection;
 		this.password = password;
 	}
@@ -78,29 +81,36 @@ public class Person {
 	}
 
 	public static Person parseJSON(String JSON) throws ParseException {
-		JSONObject abc = ((org.json.simple.JSONObject)(new JSONParser()).parse(JSON));
+		Log.e(TAG, "getValues: Person84" + JSON,null );
+		JSONObject abc = ((JSONObject)(new JSONParser()).parse(JSON));
 		Person perso = new Person();
 		try{
+			Log.e(TAG, "getValues: Person88" + JSON,null );
 		perso.setName((String)abc.get("name"));}
 		catch (Exception e ) {
 		}
 		try{
+			Log.e(TAG, "getValues: Person93" + JSON,null );
 		perso.setPhoneNumber((String) abc.get("phoneNumber"));}
 		catch (Exception e ) {
 		}
 		try{
+			Log.e(TAG, "getValues: Person98" + JSON,null );
 		perso.setConnection(Meter.parseJSON((String)abc.get("connection")));}
 		catch (Exception e ) {
 		}
 		try{
+			Log.e(TAG, "getValues: Person103",null );
 			perso.setPassword((String)abc.get("password"));}
 		catch (Exception e ) {
 		}
 		try{
+			Log.e(TAG, "getValues: Person108" + JSON,null );
 			perso.setEmailID((String)abc.get("emailID"));}
 		catch (Exception e ) {
 		}
 		try{
+			Log.e(TAG, "getValues: Person"+108,null );
 			perso.setRole((String)abc.get("role"));}
 		catch (Exception e ) {
 		}

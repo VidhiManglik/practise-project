@@ -213,9 +213,9 @@ public class UtilityFunctions {
         try {
             o = ResponseDataClass.newInstance();
             Log.e(TAG, "getValues: 25.5"+basicObject.get(key).toString(),null );
-            o= basicObject.get(key).toString();
+            o = basicObject.get(key).toString();
 //            o= mapper.readValue(, Person.class);
-//            Log.e(TAG, "getValues: 26"+basicObject,null );
+            Log.e(TAG, "getValues: 26",null );
         }
         catch (Exception e ){
             e.printStackTrace();

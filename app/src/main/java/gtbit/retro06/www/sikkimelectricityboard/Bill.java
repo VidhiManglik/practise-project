@@ -138,9 +138,5 @@ public class Bill{
 		Date dateObject=Bill.getDateFormat().parse(date);
 		this.dueDate = dateObject.getTime()%1000;
 	}
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_bill);
-	}
+
 }
