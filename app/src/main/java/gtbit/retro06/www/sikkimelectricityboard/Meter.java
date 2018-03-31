@@ -20,35 +20,49 @@ public class Meter {
 	public String getMeterNumber() {
 		return meterNumber;
 	}
-
 	public Reading getReadings() {
 		return reading;
 	}
-
 	public Bill[] getBills() {
 		return bills;
+	public void setMeterNumber(String meterNumber) {
+		this.meterNumber = meterNumber;
 	}
-
 	public float getCapacityKW() {
 		return capacityKW;
+	}
+	public void setBills(Bill[] bills) {
+		this.bills = bills;
+	}
+	public void setCapacityKW(float capacityKW) {
+		this.capacityKW = capacityKW;
+	}
+	public void setMeterNumber(String meterNumber) {
+		this.meterNumber = meterNumber;
+	public Reading getReading() {
+		return reading;
+	}
+	public void setReading(Reading reading) {
+		this.reading = reading;
+	}
+	public Bill[] getBills() {
+		return bills;
 	}
 
 	public void setBills(Bill[] bills) {
 		this.bills = bills;
 	}
 
-	public void setCapacityKW(float capacityKW) {
-		this.capacityKW = capacityKW;
+	public Meter(){
+		super();
 	}
 
-	public void setMeterNumber(String meterNumber) {
+	public Meter(String meterNumber, float capacityKW, Reading readings, Bill[] bills) {
 		this.meterNumber = meterNumber;
+		this.capacityKW = capacityKW;
+		this.reading = readings;
+		this.bills = bills;
 	}
-
-	public void setReading(Reading reading) {
-		this.reading = reading;
-	}
-
 	public Reading getReadingAt(String date){
 		//TODO:generate implementation of this method.
 		return null;

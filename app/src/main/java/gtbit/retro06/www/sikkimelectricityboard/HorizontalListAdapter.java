@@ -36,7 +36,7 @@ public class HorizontalListAdapter extends RecyclerView.Adapter<HorizontalListAd
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 5;
     }
 
     /**

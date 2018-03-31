@@ -60,7 +60,6 @@ public class LoginActivity extends AppCompatActivity
         pass = findViewById(R.id.password);
         but = findViewById(R.id.sign_in_button);
         Person person = new Person();
-
         TextView logtoreg =(TextView)findViewById(R.id.logreg);
         logtoreg.setOnClickListener(new OnClickListener() {
             @Override
@@ -144,7 +143,6 @@ public class LoginActivity extends AppCompatActivity
                 } catch (Exception e) {
                     person = null;
                 }
-
                 if (person!= null) {
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                      Intent main = new Intent(LoginActivity.this, MainActivity.class);

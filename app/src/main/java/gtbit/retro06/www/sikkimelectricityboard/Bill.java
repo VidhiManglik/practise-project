@@ -5,10 +5,16 @@ import android.os.Bundle;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Bill{
-	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	public static DateFormat getDateFormat() {
+		DATE_FORMAT.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5.30"));
+		return DATE_FORMAT;
+	}
 	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
 	String billNumber;
@@ -70,7 +76,6 @@ public class Bill{
 	private void setGrid(Grid grid) {
 		this.grid = grid;
 	}
-
 	public TariffSnapshot getTariff() {
 		return tariff;
 	}
@@ -95,12 +100,11 @@ public class Bill{
 		//permitted values are "PAID","DUE","OVERDUE","LAPSE"
 		this.status = status;
 	}
-	public Bill(long billDate, Person customer, float unitsConsumed, Grid grid, Meter meter, TariffSnapshot tariff) {
+	public Bill(long billDate, float unitsConsumed, Grid grid, TariffSnapshot tariff) {
 		this.setBillDate(billDate);
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
 		this.setUnitsConsumed(unitsConsumed);
 		this.setGrid(grid);
-		//this.setMeter(meter);
 		this.setTariff(tariff);
 	}
 	public Bill(){
@@ -110,5 +114,33 @@ public class Bill{
 	public float calculateBillWithTariff(TariffSnapshot tariff){
 		return tariff.calculateAmount(unitsConsumed);
 	}
-
+	public String getBillDateString(){
+		Date dateObject = new Date(billDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setBillDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.billDate = dateObject.getTime()%1000;
+	}
+	public String getPaymentDateString(){
+		Date dateObject = new Date(paymentDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setPaymentDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.paymentDate = dateObject.getTime()%1000;
+	}
+	public String getDueDateString(){
+		Date dateObject = new Date(dueDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setDueDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.dueDate = dateObject.getTime()%1000;
+	}
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_bill);
+	}
 }

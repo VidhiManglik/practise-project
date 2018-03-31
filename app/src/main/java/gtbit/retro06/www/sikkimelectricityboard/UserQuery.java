@@ -15,13 +15,11 @@ public class UserQuery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_query);
 
-
-            verticalList = (RecyclerView)findViewById(R.id.vertical_recycler);
-
-
+         RecyclerView verticalList;
+         VerticalListAdapter verticalAdapter;
+            verticalList = findViewById(R.id.vertical_recycler);
             verticalList.setHasFixedSize(true);
-
-            //set vertical LinearLayout as layout manager for vertial listview
+            //set vertical LinearLayout as layout manager for vertical listview
             LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             verticalList.setLayoutManager(layoutManager);
             verticalAdapter = new VerticalListAdapter(this);
