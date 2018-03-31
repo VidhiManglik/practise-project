@@ -112,4 +112,20 @@ public class Bill extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bill);
 	}
+
+	public static Bill parseJSON(String JSON){
+		JSONObject abc = ((JSONObject) (new JSONParser()).parse(JSON));
+		try{bill1.setBillDate((long)abc.get("billDate"));}catch(Exception e){ }
+		try{bill1.setDueDate((long)abc.get("dueDate"));}catch(Exception e){}
+		try{bill1.setPaymentDate((long)abc.get("paymentDate"));}catch(Exception e){}
+		try{bill1.setPaidAmount((long)abc.get("paidAmount"));}catch(Exception e){}
+		try{bill1.setPaymentMethod((String)abc.get("paymentMethod"));}catch(Exception e){}
+		try{bill1.setStatus((String)abc.get("status"));}catch(Exception e){}
+		try{bill1.setAmount((float)abc.get("amount"));}catch(Exception e){}
+		try{bill1.setUnitsConsumed((float)abc.get("unitsConsumed"));}catch(Exception e){}
+		try{bill1.setGrid((Grid)abc.get("grid"));}catch(Exception e){}
+		try{bill1.setTariff((TariffSnapshot)abc.get("tariff");}catch(Exception e){}
+			return bill1;
+		}
+	}
 }
