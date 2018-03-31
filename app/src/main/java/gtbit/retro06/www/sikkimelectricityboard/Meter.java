@@ -56,6 +56,18 @@ public class Meter {
 		//TODO:generate implementation of this method.
 		return null;
 	}
+	public String toJSONString(){
+		String output = "";
+		output += "{\"meterNumber\":\""+this.meterNumber+"\",\"capacityKW\":\""+this.getCapacityKW()+
+				"\",\"reading\":\""+this.getReading()+"\",\"bills\":[";
+		boolean first = true;
+				for(Bill b : bills){
+					if(!first)
+						output += ","
+					output += b.toJSONString() + ",";first = false;}
+//				output
+				output += "]"+ " \"reading\":"+this.reading.toJSONString()+"}";
+		return output;
 	public static Meter parseJSON(String JSON) throws ParseException {
 		JSONObject abc = ((org.json.simple.JSONObject)(new JSONParser()).parse(JSON));
 		Meter meter = new Meter();
@@ -80,3 +92,4 @@ public class Meter {
 		return meter;
 	}
 }
+

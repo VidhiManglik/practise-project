@@ -19,8 +19,7 @@ public class Person {
 	public Person(){
 		super();
 	}
-
-	public Person(String name, String phoneNumber, String emailID, String customerAccountNumber, Meter connection, String password) {
+	public Person(String name, String phoneNumber, String emailID, Meter connection, String password) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.role = "CUSTOMER";
@@ -59,7 +58,6 @@ public class Person {
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
 	}
-
 	public Meter getConnection() {
 		return connection;
 	}
@@ -79,7 +77,12 @@ public class Person {
 	public void generateNewBill() {
 		//TODO:implement this method
 	}
-
+	public String toJSONString(){
+		String output = "";
+		output += "{\"name\":\""+this.name+"\",\"phoneNumber\":\""+this.getPhoneNumber()+
+				"\",\"emailID\":\""+this.emailID+"\",\"connection\":"+this.connection.toJSONString()+
+				",\"password\":\""+this.password+"\"}";
+		return output;
 	public static Person parseJSON(String JSON) throws ParseException {
 		Log.e(TAG, "getValues: Person84" + JSON,null );
 		JSONObject abc = ((JSONObject)(new JSONParser()).parse(JSON));
