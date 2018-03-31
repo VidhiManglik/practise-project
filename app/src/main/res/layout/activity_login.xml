@@ -14,18 +14,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Login"/>
-
-    <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -82,7 +71,14 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
-
+<TextView
+    android:id="@+id/logreg"
+    android:layout_marginTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Don't have an account? Click here"
+    android:textAlignment="center"
+    />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,12 +1,15 @@
 package gtbit.retro06.www.sikkimelectricityboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Bill extends AppCompatActivity {
+public class Bill{
 	final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 	public static DateFormat getDateFormat() {
 		DATE_FORMAT.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5.30"));
@@ -14,6 +17,7 @@ public class Bill extends AppCompatActivity {
 	}
 	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
+	String billNumber;
 	long dueDate;
 	long paymentDate; 
 	long paidAmount; 
@@ -23,7 +27,8 @@ public class Bill extends AppCompatActivity {
 	float unitsConsumed;
 	Grid grid;
 	TariffSnapshot tariff;
-	
+	public String getBillNumber(){return billNumber;}
+	public void setBillNumber(String billNumber){ this.billNumber=billNumber;}
 	public long getDueDate() {
 		return dueDate;
 	}
@@ -145,4 +150,19 @@ public class Bill extends AppCompatActivity {
                 "\paymentDate"\":\""+this.paymentDate+"\",\"paidAmount\":"+this.paidAmount+"\",
                 ",\"password\":\""+this.password+"\"}";
         return output;
+	public static Bill parseJSON(String JSON){
+		JSONObject abc = ((JSONObject) (new JSONParser()).parse(JSON));
+		try{bill1.setBillDate((long)abc.get("billDate"));}catch(Exception e){ }
+		try{bill1.setDueDate((long)abc.get("dueDate"));}catch(Exception e){}
+		try{bill1.setPaymentDate((long)abc.get("paymentDate"));}catch(Exception e){}
+		try{bill1.setPaidAmount((long)abc.get("paidAmount"));}catch(Exception e){}
+		try{bill1.setPaymentMethod((String)abc.get("paymentMethod"));}catch(Exception e){}
+		try{bill1.setStatus((String)abc.get("status"));}catch(Exception e){}
+		try{bill1.setAmount((float)abc.get("amount"));}catch(Exception e){}
+		try{bill1.setUnitsConsumed((float)abc.get("unitsConsumed"));}catch(Exception e){}
+		try{bill1.setGrid((Grid)abc.get("grid"));}catch(Exception e){}
+		try{bill1.setTariff((TariffSnapshot)abc.get("tariff");}catch(Exception e){}
+			return bill1;
+		}
+	}
 }

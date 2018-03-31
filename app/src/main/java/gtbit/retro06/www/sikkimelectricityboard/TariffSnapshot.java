@@ -2,14 +2,10 @@ package gtbit.retro06.www.sikkimelectricityboard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.fasterxml.jackson.core.JsonParser;
-
-import org.json.JSONObject;
-
+import org.json.simple.JSONObject;
 import java.text.ParseException;
-
-public class TariffSnapshot extends AppCompatActivity {
+public class TariffSnapshot{
 	float lowSlabRate;
 	float mediumSlabRate;
 	float highSlabRate;
@@ -52,14 +48,6 @@ public class TariffSnapshot extends AppCompatActivity {
 
 		return totalAmount;
 	}
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bill);
-    }
-
-
 	public float getLowSlabRate() {
 		return lowSlabRate;
 	}
@@ -113,8 +101,9 @@ public class TariffSnapshot extends AppCompatActivity {
 	}
 
 	private void setHighSlabRate(float highSlabRate) {
-	}
+	this.highSlabRate = highSlabRate;}
 
 	private void setLowSlabRate(float lowSlabRate) {
+		this.lowSlabRate = lowSlabRate;
 	}
 }

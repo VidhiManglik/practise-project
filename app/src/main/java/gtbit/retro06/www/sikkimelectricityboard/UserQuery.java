@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 
 public class UserQuery extends AppCompatActivity {
 
+    private RecyclerView verticalList;
+    private VerticalListAdapter verticalAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,12 +17,8 @@ public class UserQuery extends AppCompatActivity {
 
          RecyclerView verticalList;
          VerticalListAdapter verticalAdapter;
-
             verticalList = findViewById(R.id.vertical_recycler);
-
-
             verticalList.setHasFixedSize(true);
-
             //set vertical LinearLayout as layout manager for vertical listview
             LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             verticalList.setLayoutManager(layoutManager);
@@ -27,4 +26,3 @@ public class UserQuery extends AppCompatActivity {
             verticalList.setAdapter(verticalAdapter);
         }
     }
-
