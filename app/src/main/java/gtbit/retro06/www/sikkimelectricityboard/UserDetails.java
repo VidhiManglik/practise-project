@@ -13,20 +13,4 @@ public class UserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
     }
-    public class UserDetails extends AppCompatActivity {
-        public ImageButton button;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-
-    button=findViewById(R.id.Profile);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent prof = new Intent(gtbit.retro06.www.sikkimelectricityboard.UserDetails.this, Profile.class);
-                startActivity(prof);
-            }
-        }
-
-        }
+}

@@ -18,7 +18,7 @@ public class Bill extends AppCompatActivity {
 	long paymentDate; 
 	long paidAmount; 
 	String paymentMethod;
-	String status;
+    String status;
 	float amount;
 	float unitsConsumed;
 	Grid grid;
@@ -138,4 +138,11 @@ public class Bill extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bill);
 	}
+
+    public String toJSONString(){
+        String output = "";
+        output += "{\"billDate\":\""+this.billDate+"\",\"dueDate\":\""+this.dueDate+
+                "\paymentDate"\":\""+this.paymentDate+"\",\"paidAmount\":"+this.paidAmount+"\",
+                ",\"password\":\""+this.password+"\"}";
+        return output;
 }

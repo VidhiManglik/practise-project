@@ -61,4 +61,18 @@ public class Meter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill);
     }
+	public String toJSONString(){
+		String output = "";
+		output += "{\"meterNumber\":\""+this.meterNumber+"\",\"capacityKW\":\""+this.getCapacityKW()+
+				"\",\"reading\":\""+this.getReading()+"\",\"bills\":[";
+		boolean first = true;
+				for(Bill b : bills){
+					if(!first)
+						output += ","
+					output += b.toJSONString() + ",";first = false;}
+//				output
+				output += "]"+ " \"reading\":"+this.reading.toJSONString()+"}";
+		return output;
+	}
 }
+

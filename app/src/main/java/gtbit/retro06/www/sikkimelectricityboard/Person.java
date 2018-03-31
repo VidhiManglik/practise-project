@@ -13,12 +13,12 @@ public class Person {
 		super();
 	}
 
-	public Person(String name, String phoneNumber, String emailID, String customerAccountNumber, Meter connection, String password) {
+	public Person(String name, String phoneNumber, String emailID, Meter connection, String password) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.role = "CUSTOMER";
 		this.emailID = emailID;
-		this.customerAccountNumber = customerAccountNumber;
+//		this.customerAccountNumber = customerAccountNumber;
 		this.connection = connection;
 		this.password = password;
 	}
@@ -47,12 +47,6 @@ public class Person {
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
 	}
-	public String getCustomerAccountNumber() {
-		return customerAccountNumber;
-	}
-	public void setCustomerAccountNumber(String customerAccountNumber) {
-		this.customerAccountNumber = customerAccountNumber;
-	}
 	public Meter getConnection() {
 		return connection;
 	}
@@ -68,6 +62,11 @@ public class Person {
 	public void generateNewBill(){
 		//TODO:implement this method
 	}
-	
-	
+	public String toJSONString(){
+		String output = "";
+		output += "{\"name\":\""+this.name+"\",\"phoneNumber\":\""+this.getPhoneNumber()+
+				"\",\"emailID\":\""+this.emailID+"\",\"connection\":"+this.connection.toJSONString()+
+				",\"password\":\""+this.password+"\"}";
+		return output;
+	}
 }

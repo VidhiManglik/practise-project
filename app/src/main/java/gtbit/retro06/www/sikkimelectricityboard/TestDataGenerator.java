@@ -1,15 +1,28 @@
 package gtbit.retro06.www.sikkimelectricityboard;
 
+import android.content.SyncStatusObserver;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class TestDataGenerator {
-	public static Object getRandomObjectFromArray(Object[] Array){
-		int length = Array.length -1;
-		Random r = new Random();
-		return Array[r.nextInt((length - 0) + 1)];
-	}
+    static final long YEAR_BEG = 1514745060;
+    static final long month_secs = 2678400;
+    public static Object getRandomObjectFromArray(Object[] Array){
+        int length = Array.length -1;
+        Random r = new Random();
+        return Array[r.nextInt((length - 0) + 1)];
+    }
+
+    public static long getrandomdate(){
+//        int length = Array.length -1;
+        Random r = new Random();
+        return TestDataGenerator.YEAR_BEG + (r.nextInt(24)-12) * TestDataGenerator.month_secs;
+    }
 	public static String passwordGenerator(){
 		System.out.println("anijscvn");
 		String az = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567889";
@@ -35,14 +48,27 @@ public class TestDataGenerator {
         }
         return canumber;
     }
-    public static long RandomDateGenerator(){
+//    public static long RandomDateGenerator(){
+//        Random r = new Random();
+//        String az = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//        int length = 6;//r.nextInt(6);
+//        String canumber = "";
+//        for(int j=0; j<length; j++){
+//            canumber += az.charAt(r.nextInt(36));
+//        }
+//        return canumber;
+//    }
+    public static String meterGenerator(){
+        String az = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//		String AZ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String numbers = "01234567889";
         Random r = new Random();
-        int length = 6;//r.nextInt(6);
-        String canumber = "";
+        int length = 12;//r.nextInt(6);
+        String meter = "";
         for(int j=0; j<length; j++){
-            canumber += az.charAt(r.nextInt(36));
+            meter += az.charAt(r.nextInt(36));
         }
-        return canumber;
+        return meter;
     }
 
 	public static void main(String[] args) {
@@ -62,16 +88,26 @@ public class TestDataGenerator {
         Person p;
         Meter m;
         List<Bill> bills = new ArrayList<Bill>();
+        Bill[] bAr = null;
         Reading r;
 		for(int i=0;i<110;i++){
 		    bills = new ArrayList<Bill>();
 		    for(int billCounter =0 ; billCounter < 10 ; billCounter ++){
 		        //new Random Bill here
-                bills.add(new Bill(0, ((int)getRandomObjectFromArray(READING) * (int)getRandomObjectFromArray(READING) ) %2500, null,tariff ));
+                bills.add(new Bill(getrandomdate(), ((int)getRandomObjectFromArray(READING) * (int)getRandomObjectFromArray(READING) ) %2500, null,tariff ));
             }
+            bAr = (Bill[])bills.toArray();
+            m = new Meter(meterGenerator(),10,null,bAr);
+            p = new Person((String)getRandomObjectFromArray(NAMES),(String)getRandomObjectFromArray(PHONE_NUMBERS) , (String)getRandomObjectFromArray(EMAILS),m,passwordGenerator());
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+                System.out.println(p.toJSONString());
+//            System.out.println("{\"canumber\":\"" + TestDataGenerator.caNumberGenerator() + "\",\"name\":\""+ TestDataGenerator.getRandomObjectFromArray(NAMES) + "\",\"emailID\":\""+TestDataGenerator.getRandomObjectFromArray(EMAILS)+"\",\"phoneNumber\":\""+TestDataGenerator.getRandomObjectFromArray(PHONE_NUMBERS)+"\" , \"password\":\""+TestDataGenerator.passwordGenerator()+"\",\"address\":\""+TestDataGenerator.getRandomObjectFromArray(ADDRESSES)+"\",\"regions\":\""+TestDataGenerator.getRandomObjectFromArray(REGIONS)+"\",\"reading\":\"" + TestDataGenerator.getRandomObjectFromArray(READING) + "\"}");
+            }
+            catch(Exception e){
+                System.out.println("failed");
 
-			System.out.println("{\"canumber\":\"" + TestDataGenerator.caNumberGenerator() + "\",\"name\":\""+ TestDataGenerator.getRandomObjectFromArray(NAMES) + "\",\"emailID\":\""+TestDataGenerator.getRandomObjectFromArray(EMAILS)+"\",\"phoneNumber\":\""+TestDataGenerator.getRandomObjectFromArray(PHONE_NUMBERS)+"\" , \"password\":\""+TestDataGenerator.passwordGenerator()+"\",\"address\":\""+TestDataGenerator.getRandomObjectFromArray(ADDRESSES)+"\",\"regions\":\""+TestDataGenerator.getRandomObjectFromArray(REGIONS)+"\",\"reading\":\"" + TestDataGenerator.getRandomObjectFromArray(READING) + "\"}");
-			
+            }
 		}
 	}
 }
