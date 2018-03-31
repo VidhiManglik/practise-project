@@ -3,19 +3,77 @@ package gtbit.retro06.www.sikkimelectricityboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Meter extends AppCompatActivity {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.util.ArrayList;
+
+public class Meter {
 	String meterNumber;
 	float capacityKW;
-	Reading[] readings;
+	Reading reading;
 	Bill[] bills;
+
+	public String getMeterNumber() {
+		return meterNumber;
+	}
+
+	public Reading getReadings() {
+		return reading;
+	}
+
+	public Bill[] getBills() {
+		return bills;
+	}
+
+	public float getCapacityKW() {
+		return capacityKW;
+	}
+
+	public void setBills(Bill[] bills) {
+		this.bills = bills;
+	}
+
+	public void setCapacityKW(float capacityKW) {
+		this.capacityKW = capacityKW;
+	}
+
+	public void setMeterNumber(String meterNumber) {
+		this.meterNumber = meterNumber;
+	}
+
+	public void setReading(Reading reading) {
+		this.reading = reading;
+	}
 
 	public Reading getReadingAt(String date){
 		//TODO:generate implementation of this method.
 		return null;
 	}
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bill);
-    }
+	public static Meter parseJSON(String JSON) throws ParseException {
+		JSONObject abc = ((org.json.simple.JSONObject)(new JSONParser()).parse(JSON));
+		Meter meter = new Meter();
+		try{
+			meter.setMeterNumber((String)abc.get("meterNumber"));}
+		catch (Exception e ) {
+		}
+		try{
+			meter.setCapacityKW((float) abc.get("capacityKW"));}
+		catch (Exception e ) {
+		}
+		try{
+			meter.setReading(Reading.parseJSON((String)abc.get("reading")));}
+		catch (Exception e ) {
+		}
+//		try{
+//			List<Bill> abcd = new ArrayList<Bill>();
+//			for()
+//			meter.setBills((String)abc.get("bills"));}
+//		catch (Exception e ) {
+//		}
+		return meter;
+	}
 }

@@ -3,7 +3,7 @@ package gtbit.retro06.www.sikkimelectricityboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class TariffSnapshot extends AppCompatActivity {
+public class TariffSnapshot{
 	float lowSlabRate;
 	float mediumSlabRate;
 	float highSlabRate;
@@ -46,10 +46,4 @@ public class TariffSnapshot extends AppCompatActivity {
 
 		return totalAmount;
 	}
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bill);
-    }
 }

@@ -1,13 +1,17 @@
 package gtbit.retro06.www.sikkimelectricityboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class Bill extends AppCompatActivity {
+public class Bill{
 	final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 	final long PAYMENT_GRACE_PERIOD = 10*24*60*60; // 10 days grace Period in seconds
 	long billDate;
+	String billNumber;
 	long dueDate;
 	long paymentDate; 
 	long paidAmount; 
@@ -17,7 +21,8 @@ public class Bill extends AppCompatActivity {
 	float unitsConsumed;
 	Grid grid;
 	TariffSnapshot tariff;
-	
+	public String getBillNumber(){return billNumber;}
+	public void setBillNumber(String billNumber){ this.billNumber=billNumber;}
 	public long getDueDate() {
 		return dueDate;
 	}
@@ -105,9 +110,5 @@ public class Bill extends AppCompatActivity {
 	public float calculateBillWithTariff(TariffSnapshot tariff){
 		return tariff.calculateAmount(unitsConsumed);
 	}
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_bill);
-	}
+
 }

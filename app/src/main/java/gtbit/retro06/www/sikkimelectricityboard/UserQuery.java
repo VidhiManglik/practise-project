@@ -7,13 +7,14 @@ import android.support.v7.widget.RecyclerView;
 
 public class UserQuery extends AppCompatActivity {
 
+    private RecyclerView verticalList;
+    private VerticalListAdapter verticalAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_query);
 
-        private RecyclerView verticalList;
-        private VerticalListAdapter verticalAdapter;
 
             verticalList = (RecyclerView)findViewById(R.id.vertical_recycler);
 
@@ -27,5 +28,3 @@ public class UserQuery extends AppCompatActivity {
             verticalList.setAdapter(verticalAdapter);
         }
     }
-    }
-}
