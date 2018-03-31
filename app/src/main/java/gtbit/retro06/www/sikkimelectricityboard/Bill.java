@@ -2,7 +2,9 @@ package gtbit.retro06.www.sikkimelectricityboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Bill extends AppCompatActivity {
 	final static DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -93,7 +95,7 @@ public class Bill extends AppCompatActivity {
 		//permitted values are "PAID","DUE","OVERDUE","LAPSE"
 		this.status = status;
 	}
-	public Bill(long billDate, Person customer, float unitsConsumed, Grid grid, Meter meter, TariffSnapshot tariff) {
+	public Bill(long billDate, float unitsConsumed, Grid grid, TariffSnapshot tariff) {
 		this.setBillDate(billDate);
 		this.setDueDate(billDate + PAYMENT_GRACE_PERIOD);
 		this.setUnitsConsumed(unitsConsumed);
@@ -106,6 +108,30 @@ public class Bill extends AppCompatActivity {
 	/*(int) (System.currentTimeMillis() / 1000L);*/
 	public float calculateBillWithTariff(TariffSnapshot tariff){
 		return tariff.calculateAmount(unitsConsumed);
+	}
+	public String getBillDateString(){
+		Date dateObject = new Date(billDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setBillDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.billDate = dateObject.getTime()%1000;
+	}
+	public String getPaymentDateString(){
+		Date dateObject = new Date(paymentDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setPaymentDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.paymentDate = dateObject.getTime()%1000;
+	}
+	public String getDueDateString(){
+		Date dateObject = new Date(dueDate*1000);
+		return Bill.getDateFormat().format(dateObject);
+	}
+	public void setDueDateFromString(String date)throws ParseException{
+		Date dateObject=Bill.getDateFormat().parse(date);
+		this.dueDate = dateObject.getTime()%1000;
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

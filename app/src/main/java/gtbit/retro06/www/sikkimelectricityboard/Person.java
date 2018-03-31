@@ -8,7 +8,21 @@ public class Person {
 	String customerAccountNumber;
 	Meter connection;
 	String password;
-	
+
+	public Person(){
+		super();
+	}
+
+	public Person(String name, String phoneNumber, String emailID, String customerAccountNumber, Meter connection, String password) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.role = "CUSTOMER";
+		this.emailID = emailID;
+		this.customerAccountNumber = customerAccountNumber;
+		this.connection = connection;
+		this.password = password;
+	}
+
 	public String getName() {
 		return name;
 	}
