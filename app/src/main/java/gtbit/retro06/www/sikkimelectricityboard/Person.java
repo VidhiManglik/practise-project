@@ -41,7 +41,7 @@ public class Person {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getEmailID() {
+	public String getEmailID()  {
 		return emailID;
 	}
 	public void setEmailID(String emailID) {
